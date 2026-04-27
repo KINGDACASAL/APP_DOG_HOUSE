@@ -1,37 +1,108 @@
+/* ======== ESTILO GERAL ======== */
 body {
-    background: #0a0f1a;
-    color: white;
-    font-family: Arial;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #0a0f1a, #111827);
+    color: #e5e7eb;
+    font-family: "Poppins", Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* ======== LOGIN ======== */
+.login-box {
+    background: rgba(17, 24, 39, 0.85);
+    padding: 40px;
+    width: 350px;
+    border-radius: 15px;
+    box-shadow: 0 0 25px rgba(0, 170, 255, 0.4);
+    backdrop-filter: blur(10px);
     text-align: center;
 }
 
+.login-box h2 {
+    margin-bottom: 20px;
+    color: #00aaff;
+    font-size: 26px;
+}
+
+.login-box input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    background: #1f2937;
+    color: white;
+    font-size: 15px;
+}
+
+.login-box button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: none;
+    background: #00aaff;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.login-box button:hover {
+    background: #0088cc;
+}
+
+#error {
+    margin-top: 10px;
+    color: #ff4d4d;
+}
+
+/* ======== DASHBOARD ======== */
 .container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
-    width: 300px;
-    margin: auto;
-    margin-top: 40px;
+    gap: 25px;
+    width: 350px;
 }
 
 .panel {
-    background: #111827;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px #00aaff;
+    background: rgba(17, 24, 39, 0.85);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 170, 255, 0.3);
+    backdrop-filter: blur(10px);
+    text-align: center;
 }
 
-button {
-    background: #00aaff;
-    border: none;
+.panel h3 {
+    margin: 0;
+    font-size: 18px;
+    color: #00aaff;
+}
+
+.panel h2 {
+    margin: 10px 0 0;
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.botoes-modo button {
     padding: 10px 20px;
-    margin: 5px;
-    border-radius: 8px;
+    margin: 8px;
+    border-radius: 10px;
+    border: none;
+    background: #00aaff;
     color: white;
     font-size: 16px;
     cursor: pointer;
+    transition: 0.2s;
 }
 
-button:hover {
+.botoes-modo button:hover {
     background: #0088cc;
 }
