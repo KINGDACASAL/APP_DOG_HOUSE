@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <title>DogHouse Inteligente</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="dashboard.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- PAINEL TEMPERATURA -->
+        <div class="panel">
+            <h3>Temperatura</h3>
+            <h2 id="temp">-- ºC</h2>
+        </div>
+
+        <!-- PAINEL ÁGUA -->
+        <div class="panel">
+            <h3>Distância da Água</h3>
+            <h2 id="agua">-- cm</h2>
+        </div>
+
+        <!-- PAINEL MODO -->
+        <div class="panel">
+            <h3>Modo Atual</h3>
+            <h2 id="modoAtual">AUTO</h2>
+
+            <div class="botoes-modo">
+                <button onclick="mudarModo('AUTO')">AUTO</button>
+                <button onclick="mudarModo('VERAO')">VERÃO</button>
+                <button onclick="mudarModo('INVERNO')">INVERNO</button>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
