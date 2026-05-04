@@ -1,17 +1,55 @@
 const dbUrl = "https://doghouse-inteligente-default-rtdb.europe-west1.firebasedatabase.app";
 
-// Atualizar peso em tempo real
-function atualizarPeso() {
-    fetch(`${dbUrl}/peso.json`)
-        .then(r => r.json())
-        .then(peso => {
-            document.getElementById("pesoValor").innerText = peso + " kg";
-        });
-}
-setInterval(atualizarPeso, 1500);
+// ====== LER DADOS ======
+async function lerFirebase() {
+    try {
+        const res = await fetch(`${dbUrl}/.json`);
+        const data = await res.json();
 
-// Alterar horários
-function alterarHora(feed, tipo) {
+        // AC
+        document.getElementById("temp").innerText = data.temperatura + " ºC";
+        document.getElementById("modoAtual").innerText = data.modo;
+
+        // Água
+        document.getElementById("agua").innerText = data.agua + " cm";
+
+        // Horários
+        document.getElementById("f1hora").innerText =
+            (data.f1hora < 10 ? "0" : "") + data.f1hora + ":" +
+            (data.f1min < 10 ? "0" : "") + data.f1min;
+
+        document.getElementById("f2hora").innerText =
+            (data.f2hora < 10 ? "0" : "") + data.f2hora + ":" +
+            (data.f2min < 10 ? "0" : "") + data.f2min;
+
+        // Peso
+        document.getElementById("pesoValor").innerText = data.peso + " kg";
+
+    } catch (e) {
+        console.log("Erro ao ler Firebase:", e);
+    }
+}
+
+setInterval(lerFirebase, 1000);
+
+// ====== MODO DO AR CONDICIONADO ======
+async function mudarModoAC(novoModo) {
+    await fetch(`${dbUrl}/modo.json`, {
+        method: "PUT",
+        body: JSON.stringify(novoModo)
+    });
+}
+
+// ====== MODO DA RAÇÃO ======
+async function mudarModoRacao(modo) {
+    await fetch(`${dbUrl}/modoRacao.json`, {
+        method: "PUT",
+        body: JSON.stringify(modo)
+    });
+}
+
+// ====== ALTERAR HORÁRIOS ======
+async function alterarHora(feed, tipo) {
     let campo = "";
 
     if (feed === "F1" && tipo === "HORA") campo = "f1hora";
@@ -19,25 +57,16 @@ function alterarHora(feed, tipo) {
     if (feed === "F2" && tipo === "HORA") campo = "f2hora";
     if (feed === "F2" && tipo === "MIN")  campo = "f2min";
 
-    fetch(`${dbUrl}/${campo}.json`)
-        .then(r => r.json())
-        .then(valor => {
-            let novo = valor + 1;
+    const res = await fetch(`${dbUrl}/${campo}.json`);
+    let valor = await res.json();
 
-            if (campo.includes("hora") && novo >= 24) novo = 0;
-            if (campo.includes("min")  && novo >= 60) novo = 0;
+    valor++;
 
-            fetch(`${dbUrl}/${campo}.json`, {
-                method: "PUT",
-                body: JSON.stringify(novo)
-            });
-        });
-}
+    if (campo.includes("hora") && valor >= 24) valor = 0;
+    if (campo.includes("min")  && valor >= 60) valor = 0;
 
-// Mudar para modo RUN
-function mudarParaRun() {
-    fetch(`${dbUrl}/modo.json`, {
+    await fetch(`${dbUrl}/${campo}.json`, {
         method: "PUT",
-        body: JSON.stringify("RUN")
+        body: JSON.stringify(valor)
     });
 }

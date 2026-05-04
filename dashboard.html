@@ -4,39 +4,64 @@
     <meta charset="UTF-8">
     <title>DogHouse Inteligente</title>
     <link rel="stylesheet" href="style.css">
+    <script defer src="dashboard.js"></script>
 </head>
+
 <body>
 
     <div class="container">
 
-        <h1>DogHouse Inteligente</h1>
+        <!-- TEMPERATURA -->
+        <div class="panel">
+            <h3>Temperatura</h3>
+            <h2 id="temp">-- ºC</h2>
+        </div>
 
-        <div class="painel-horarios">
+        <!-- ÁGUA -->
+        <div class="panel">
+            <h3>Distância da Água</h3>
+            <h2 id="agua">-- cm</h2>
+        </div>
 
-            <h2>Horário F1</h2>
+        <!-- MODO -->
+        <div class="panel">
+            <h3>Modo Atual</h3>
+            <h2 id="modoAtual">AUTO</h2>
+
+            <div class="botoes-modo">
+                <button onclick="mudarModo('AUTO')">AUTO</button>
+                <button onclick="mudarModo('VERAO')">VERÃO</button>
+                <button onclick="mudarModo('INVERNO')">INVERNO</button>
+                <button class="btn-run" onclick="mudarModo('RUN')">RUN</button>
+            </div>
+        </div>
+
+        <!-- HORÁRIOS -->
+        <div class="panel">
+            <h3>Horário F1</h3>
+            <h2 id="f1hora">--:--</h2>
+
             <div class="linha-botoes">
                 <button class="btn-hora" onclick="alterarHora('F1','HORA')">+ Hora</button>
                 <button class="btn-min" onclick="alterarHora('F1','MIN')">+ Min</button>
             </div>
 
-            <h2>Horário F2</h2>
+            <h3>Horário F2</h3>
+            <h2 id="f2hora">--:--</h2>
+
             <div class="linha-botoes">
                 <button class="btn-hora" onclick="alterarHora('F2','HORA')">+ Hora</button>
                 <button class="btn-min" onclick="alterarHora('F2','MIN')">+ Min</button>
             </div>
-
-            <h2>Modo</h2>
-            <button class="btn-run" onclick="mudarParaRun()">Modo RUN</button>
-
         </div>
 
-        <div id="pesoBox">
-            <h2>Peso Atual</h2>
-            <p id="pesoValor">-- kg</p>
+        <!-- PESO -->
+        <div class="panel">
+            <h3>Peso Atual</h3>
+            <h2 id="pesoValor">-- kg</h2>
         </div>
 
     </div>
 
-    <script src="dashboard.js"></script>
 </body>
 </html>
