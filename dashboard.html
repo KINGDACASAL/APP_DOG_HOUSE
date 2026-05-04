@@ -4,52 +4,39 @@
     <meta charset="UTF-8">
     <title>DogHouse Inteligente</title>
     <link rel="stylesheet" href="style.css">
-    <script defer src="dashboard.js"></script>
 </head>
-
 <body>
 
     <div class="container">
 
-        <div class="panel">
-            <h3>Temperatura</h3>
-            <h2 id="temp">-- ºC</h2>
-        </div>
+        <h1>DogHouse Inteligente</h1>
 
-        <div class="panel">
-            <h3>Distância da Água</h3>
-            <h2 id="agua">-- cm</h2>
-        </div>
+        <div class="painel-horarios">
 
-        <div class="panel">
-            <h3>Modo Atual</h3>
-            <h2 id="modoAtual">AUTO</h2>
-
-            <div class="botoes-modo">
-                <button onclick="mudarModo('AUTO')">AUTO</button>
-                <button onclick="mudarModo('VERAO')">VERÃO</button>
-                <button onclick="mudarModo('INVERNO')">INVERNO</button>
+            <h2>Horário F1</h2>
+            <div class="linha-botoes">
+                <button class="btn-hora" onclick="alterarHora('F1','HORA')">+ Hora</button>
+                <button class="btn-min" onclick="alterarHora('F1','MIN')">+ Min</button>
             </div>
+
+            <h2>Horário F2</h2>
+            <div class="linha-botoes">
+                <button class="btn-hora" onclick="alterarHora('F2','HORA')">+ Hora</button>
+                <button class="btn-min" onclick="alterarHora('F2','MIN')">+ Min</button>
+            </div>
+
+            <h2>Modo</h2>
+            <button class="btn-run" onclick="mudarParaRun()">Modo RUN</button>
+
         </div>
 
-        <div class="panel">
-            <h3>Peso da Taça</h3>
-            <h2 id="peso">-- kg</h2>
-        </div>
-
-        <div class="panel">
-            <h3>Horários de Ração</h3>
-
-            <p>F1: <span id="f1hora">--:--</span></p>
-            <button onclick="alterarHora('F1', 'HORA')">+ Hora F1</button>
-            <button onclick="alterarHora('F1', 'MIN')">+ Min F1</button>
-
-            <p>F2: <span id="f2hora">--:--</span></p>
-            <button onclick="alterarHora('F2', 'HORA')">+ Hora F2</button>
-            <button onclick="alterarHora('F2', 'MIN')">+ Min F2</button>
+        <div id="pesoBox">
+            <h2>Peso Atual</h2>
+            <p id="pesoValor">-- kg</p>
         </div>
 
     </div>
 
+    <script src="dashboard.js"></script>
 </body>
 </html>

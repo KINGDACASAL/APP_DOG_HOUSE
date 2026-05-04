@@ -91,7 +91,11 @@ body {
     font-weight: bold;
 }
 
-.botoes-modo button {
+/* ======== BOTÕES ======== */
+.botoes-modo button,
+.btn-hora,
+.btn-min,
+.btn-run {
     padding: 10px 20px;
     margin: 8px;
     border-radius: 10px;
@@ -103,6 +107,23 @@ body {
     transition: 0.2s;
 }
 
-.botoes-modo button:hover {
+.botoes-modo button:hover,
+.btn-hora:hover,
+.btn-min:hover,
+.btn-run:hover {
     background: #0088cc;
+}
+
+.btn-run {
+    background: #ff9100;
+}
+
+.btn-run:hover {
+    background: #e67e00;
+}
+
+.linha-botoes {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
 }
