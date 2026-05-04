@@ -11,32 +11,28 @@
 
     <div class="container">
 
-        <!-- TEMPERATURA -->
+        <!-- PAINEL DO AR CONDICIONADO -->
         <div class="panel">
             <h3>Temperatura</h3>
             <h2 id="temp">-- ºC</h2>
+
+            <h3>Modo AC</h3>
+            <h2 id="modoAtual">AUTO</h2>
+
+            <div class="botoes-modo">
+                <button onclick="mudarModoAC('AUTO')">AUTO</button>
+                <button onclick="mudarModoAC('VERAO')">VERÃO</button>
+                <button onclick="mudarModoAC('INVERNO')">INVERNO</button>
+            </div>
         </div>
 
-        <!-- ÁGUA -->
+        <!-- PAINEL DO BEBEDOURO -->
         <div class="panel">
             <h3>Distância da Água</h3>
             <h2 id="agua">-- cm</h2>
         </div>
 
-        <!-- MODO -->
-        <div class="panel">
-            <h3>Modo Atual</h3>
-            <h2 id="modoAtual">AUTO</h2>
-
-            <div class="botoes-modo">
-                <button onclick="mudarModo('AUTO')">AUTO</button>
-                <button onclick="mudarModo('VERAO')">VERÃO</button>
-                <button onclick="mudarModo('INVERNO')">INVERNO</button>
-                <button class="btn-run" onclick="mudarModo('RUN')">RUN</button>
-            </div>
-        </div>
-
-        <!-- HORÁRIOS -->
+        <!-- PAINEL DA RAÇÃO -->
         <div class="panel">
             <h3>Horário F1</h3>
             <h2 id="f1hora">--:--</h2>
@@ -53,6 +49,9 @@
                 <button class="btn-hora" onclick="alterarHora('F2','HORA')">+ Hora</button>
                 <button class="btn-min" onclick="alterarHora('F2','MIN')">+ Min</button>
             </div>
+
+            <h3>Modo da Ração</h3>
+            <button class="btn-run" onclick="mudarModoRacao()">RUN</button>
         </div>
 
         <!-- PESO -->
