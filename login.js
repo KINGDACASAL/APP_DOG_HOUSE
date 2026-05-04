@@ -1,10 +1,23 @@
-function login() {
-  const u = document.getElementById("user").value;
-  const p = document.getElementById("pass").value;
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Login - DogHouse</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-  if (u === "Bregieiro" && p === "doghouse") {
-    window.location.href = "dashboard.html";
-  } else {
-    document.getElementById("error").innerText = "Credenciais inválidas!";
-  }
-}
+<div class="login-box">
+  <h2>DogHouse Inteligente</h2>
+
+  <input id="user" type="text" placeholder="Username">
+  <input id="pass" type="password" placeholder="Password">
+
+  <button onclick="login()">Entrar</button>
+
+  <p id="error"></p>
+</div>
+
+<script src="login.js"></script>
+</body>
+</html>
